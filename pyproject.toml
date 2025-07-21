@@ -1,0 +1,35 @@
+[project]
+name = "ucam-auth"
+version = "0.1.0"
+description = "University of Cambridge authentication library for OIDC/OAuth2"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Jeremy Chen", email = "jeremy@intgrah.com" }]
+keywords = ["cambridge", "ucam", "authentication", "oidc", "oauth2", "sso"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = ["requests>=2.31.0", "PyJWT[crypto]>=2.8.0"]
+
+[project.urls]
+Homepage = "https://github.com/cucats/ucam-auth"
+Issues = "https://github.com/cucats/ucam-auth"
+
+[project.optional-dependencies]
+dev = ["black>=23.0.0"]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ucam_auth*"]
