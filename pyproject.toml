@@ -1,6 +1,6 @@
 [project]
 name = "ucam-auth"
-version = "0.1.0"
+version = "0.2.0"
 description = "University of Cambridge authentication library for OIDC/OAuth2"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -16,11 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 
-dependencies = [
-    "msal>=1.24.0",
-    "msgraph-sdk>=1.0.0",
-    "azure-core>=1.28.0",
-]
+dependencies = ["msal>=1.24.0", "msgraph-sdk>=1.0.0", "azure-core>=1.28.0"]
 
 [project.urls]
 Homepage = "https://github.com/cucats/ucam-auth"
@@ -38,7 +34,4 @@ where = ["."]
 include = ["ucam_auth*"]
 
 [dependency-groups]
-dev = [
-    "ruff>=0.15.5",
-    "ty>=0.0.21",
-]
+dev = ["ruff>=0.15.5", "ty>=0.0.21"]
