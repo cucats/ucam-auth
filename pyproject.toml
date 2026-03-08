@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [{ name = "Jeremy Chen", email = "jeremy@intgrah.com" }]
+authors = [{ name = "Jeremy Chen", email = "git@sl.intgrah.com" }]
 keywords = ["cambridge", "ucam", "authentication", "oidc", "oauth2", "sso"]
 classifiers = [
     "Intended Audience :: Developers",
@@ -16,7 +16,11 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 
-dependencies = ["requests>=2.31.0", "PyJWT[crypto]>=2.8.0"]
+dependencies = [
+    "msal>=1.24.0",
+    "msgraph-sdk>=1.0.0",
+    "azure-core>=1.28.0",
+]
 
 [project.urls]
 Homepage = "https://github.com/cucats/ucam-auth"
@@ -32,3 +36,9 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["ucam_auth*"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.5",
+    "ty>=0.0.21",
+]

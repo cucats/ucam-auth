@@ -5,6 +5,8 @@ A Python library for authenticating University of Cambridge users via OpenID Con
 ## Usage
 
 ```python
+import secrets
+
 from ucam_auth import Auth
 
 redirect_uri = "https://yourapp.com/callback"
@@ -37,15 +39,24 @@ id_token = tokens["id_token"]
 
 ## Advanced Usage
 
-### Manual Token Verification
+### Group Membership
 
 ```python
-# Exchange code for tokens
-tokens = auth.exchange_code_for_tokens(code)
+from azure.core.credentials import AccessToken
 
-# Verify ID token
-claims = auth.verify_id_token(tokens["id_token"])
+tokens = auth.authenticate(code)
+access_token = AccessToken(tokens["access_token"], tokens["id_token_claims"]["exp"])
 
-# Get user info
-user_info = auth.get_user_info(claims, tokens.get("access_token"))
+groups = await auth.get_groups(access_token)
+
+if Auth.UOC_USERS_STUDENT in groups:
+    print("User is a student")
+```
+
+### Silent Token Acquisition
+
+```python
+accounts = auth.get_accounts()
+if accounts:
+    tokens = auth.acquire_token_silent(accounts[0])
 ```
