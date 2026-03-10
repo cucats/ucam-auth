@@ -35,3 +35,7 @@ include = ["ucam_auth*"]
 
 [dependency-groups]
 dev = ["ruff>=0.15.5", "ty>=0.0.21"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["D203", "D213", "COM812"]
